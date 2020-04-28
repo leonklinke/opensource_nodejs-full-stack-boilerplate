@@ -1,0 +1,12 @@
+#!/bin/bash
+docker start $1-back-container
+echo "back-container up"
+docker start $1-front-container
+echo "front-container up"
+docker start $1-database-container
+echo "database-container up"
+
+echo "=======containers up======"
+docker exec -it $1-back-container bash
+cd /$1-back && node ace serve --watch
+exit
