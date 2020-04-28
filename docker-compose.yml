@@ -1,0 +1,15 @@
+api:
+  container_name: project-back
+  build: project-back
+  ports:
+  - "83:3333"
+  volumes:
+  - ./project-back:/project-back
+web:
+  container_name: project-front
+  build: project-front
+  ports:
+  - "84:3000"
+  volumes:
+    - ./project-front:/project-front
+  tty: true
