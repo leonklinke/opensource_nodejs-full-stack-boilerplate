@@ -7,12 +7,12 @@ Boilerplate for a full stack project using nodejs (adonisJS), ReactJs as frontEn
 ![](https://cdn.iconscout.com/icon/free/png-128/docker-226091.png)
 
 **It contains**
-- Jest test https://jestjs.io/
 - Live reload 
+- Jest test https://jestjs.io/
 - Eslint https://eslint.org/
-- Unform https://unform.dev/
 - React Router Dom https://www.npmjs.com/package/react-router-dom
 - Axios https://www.npmjs.com/package/react-axios
+- Yup https://github.com/jquense/yup
 
 **You can skip docker part and execute everything in your machine** _But if you  are a good person keep going with docker :wink:_
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../assets/magic.gif';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './App.css';
 
 function Home() {
