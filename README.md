@@ -75,7 +75,7 @@ First you need to create your database, in this example `project`
 
 ```
 $ ./goto database
-mysq -uroot -phashProj123
+mysql -uroot -phashProj123
 create database project
 exit
 ```
