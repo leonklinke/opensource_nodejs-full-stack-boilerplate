@@ -16,6 +16,12 @@ Boilerplate for a full stack project using nodejs (adonisJS), ReactJs as frontEn
 
 **You can skip docker part and execute everything in your machine** _But if you  are a good person keep going with docker :wink:_
 
+- First Fork the project and clone
+Once cloned
+```
+$ cd project-back && yarn
+$ cd project-front && yarn
+``` 
 - Get docker
 To install docker visit: https://docs.docker.com/get-docker/
 - Get docker compose
