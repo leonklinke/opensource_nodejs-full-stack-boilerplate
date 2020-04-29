@@ -2,11 +2,9 @@ import api from './api';
 
 const UserService = {}
 
-UserService.get = async (data) => {
+UserService.listAll = async (data) => {
     try {
-        const response = await api.post('/user/list',
-            ...data
-        );
+        const response = await api.get('/user');
         if (response.data == null) {
             return [];
         }
@@ -15,24 +13,22 @@ UserService.get = async (data) => {
         console.log("error user list", err);
     }
 }
-UserService.add = async (data) => {
+UserService.create = async (data) => {
     try {
-        const response = await api.post('/user/add',
-            ...data
+        const response = await api.post('/user',
+            data
         );
         if (response.data == null) {
             return [];
         }
         return response.data;
     } catch (err) {
-        console.log("error user add", err);
+        console.log("error user create", err);
     }
 }
-UserService.delete = async (data) => {
+UserService.delete = async (id) => {
     try {
-        const response = await api.post('/user/delete',
-            { id_user: parseInt(data.id_user) }
-        );
+        const response = await api.delete('/user/' + id);
         if (response.data == null) {
             return [];
         }

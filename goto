@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "Número de argumentos inválido $#."
+    exit 1
+fi
+projectname="project"
+command=${1}
+
+echo "Entereing ${projectname}-${1} container"
+docker exec -it ${projectname}-${1} bash

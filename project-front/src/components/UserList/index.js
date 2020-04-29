@@ -4,6 +4,11 @@ import './styles.css';
 export default function UserList(props) {
 
     // deleteUser = (id) => console.log(id)
+    if (props.userList.length <= 0) {
+        return (
+            <div className="register-container">No users</div>
+        )
+    }
 
     return (
         <div className="register-container">
@@ -17,9 +22,9 @@ export default function UserList(props) {
                             <strong>Email:</strong>
                             <p>{user.email}</p>
 
-                            <button onClick={() => { }} type="button">
+                            <button onClick={() => props.onDelete(user.id)} type="button">
                                 Delete
-                                </button>
+                            </button>
                         </li>
                     ))}
                 </ul>

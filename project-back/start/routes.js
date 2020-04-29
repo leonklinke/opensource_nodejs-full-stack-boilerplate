@@ -17,5 +17,8 @@
 const Route = use('Route')
 
 Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+  return { success: 'Hello your project API is runnig!   OK' }
 })
+Route.delete('/user/:id', 'UserController.delete')
+Route.post('/user', 'UserController.create')
+Route.get('/user', 'UserController.listAll')

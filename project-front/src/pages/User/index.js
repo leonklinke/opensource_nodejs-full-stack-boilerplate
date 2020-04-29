@@ -11,16 +11,24 @@ export default class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userList: [
-                { name: "leon klinke", email: "leon.klinkea@gmail.com" },
-                { name: "leon klinke", email: "leon.klinkea@gmail.com" },
-                { name: "User test", email: "user.test@gmail.com" }
-            ],
+            userList: [],
         };
     }
     createUser = async (user) => {
-        let response = await userService.add(user);
-        console.log("response from API", response)
+        await userService.create(user);
+        await this.listUsers();
+
+    }
+    listUsers = async () => {
+        let response = await userService.listAll();
+        this.setState({ userList: response });
+    }
+    deleteUser = async (id) => {
+        await userService.delete(id);
+        await this.listUsers();
+    }
+    componentDidMount = async () => {
+        await this.listUsers();
     }
 
     render() {
@@ -34,7 +42,10 @@ export default class User extends Component {
                     </div>
                     <div className="flex-large">
                         <h2>View users</h2>
-                        <UserList userList={this.state.userList} />
+                        <UserList
+                            onDelete={(id) => this.deleteUser(id)}
+                            userList={this.state.userList}
+                        />
                     </div>
                 </div>
             </div>

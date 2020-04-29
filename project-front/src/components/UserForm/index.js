@@ -15,8 +15,6 @@ export default class UserForm extends Component {
         this.props.onUserSave(this.state)
     }
     render() {
-
-
         return (
             <div className="register-container">
                 <div className="content">
@@ -32,6 +30,13 @@ export default class UserForm extends Component {
                             placeholder="E-mail"
                             value={this.state.email}
                             onChange={e => this.setState({ email: e.target.value })}
+                        />
+
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={e => this.setState({ password: e.target.value })}
                         />
 
                         <button className="button" type="submit">Register</button>

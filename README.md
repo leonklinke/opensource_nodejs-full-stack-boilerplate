@@ -12,9 +12,10 @@ Boilerplate for a full stack project using nodejs (adonisJS), ReactJs as frontEn
 - Eslint https://eslint.org/
 - React Router Dom https://www.npmjs.com/package/react-router-dom
 - Axios https://www.npmjs.com/package/react-axios
-- Yup https://github.com/jquense/yup
 
 **You can skip docker part and execute everything in your machine** _But if you  are a good person keep going with docker :wink:_
+
+## Cloning project
 
 - First Fork the project and clone
 
@@ -23,6 +24,11 @@ Once cloned
 $ cd project-back && yarn && cd ..
 $ cd project-front && yarn && cd ..
 ``` 
+
+That will install node dependencies into your project
+
+## Instaling Docker
+
 - Get docker
 To install docker visit: https://docs.docker.com/get-docker/
 - Get docker compose
@@ -31,6 +37,7 @@ To install docker compose visit: https://docs.docker.com/compose/install/
 After get docker and compose, lets create docker containers
 IMPORTANT: I've choosen a project name that will be used everywhere, in my example is just: `project` but you can change.
 
+- Build containers
 
 ```
 $ docker-compose build
@@ -38,20 +45,48 @@ $ docker-compose up -d
 ``` 
 _-d option run your containers in background_
 
-- Now you have 
+## Done
+
+Now you have 
 
 **AdonisJS back-end up in `localhost:83`**
 
 **ReactJS front-end up in `localhost:84`**
 
+**Mysql database up in `localhost:3308`**
+
+## Working with project
+
+If you want to enter containers, you can use `goto` script like:
+
+`$ ./goto front`
+
+That will take you to the *project-front* container
 
 - **Testing your front-end**
 ```
-docker exec -it project-front bash
+$ ./goto front
 yarn test
 ```
 
-- **Migrating database**
+## Migrating database
+
+First you need to create your database, in this example `project`
+
 ```
-docker exec -d project-back adonis migration:run
+$ ./goto database
+mysq -uroot -phashProj123
+create database project
+exit
 ```
+
+You can use a client like workbench as well accessing: *localhost:3308* and create the `project` database
+
+Now lets make the migrations
+
+```
+$ ./goto back
+adonis migration:run
+```
+
+**Now you are good to go!! :wink:**
