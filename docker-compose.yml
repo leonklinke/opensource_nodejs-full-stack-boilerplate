@@ -1,15 +1,39 @@
-api:
-  container_name: project-back
-  build: project-back
-  ports:
-  - "83:3333"
-  volumes:
-  - ./project-back:/project-back
-web:
-  container_name: project-front
-  build: project-front
-  ports:
-  - "84:3000"
-  volumes:
-    - ./project-front:/project-front
-  tty: true
+version: "3.4"
+services:
+  api:
+    container_name: project-back
+    build: project-back
+    ports:
+      - "83:3333"
+    volumes:
+      - ./project-back:/project-back
+    tty: true
+    links:
+      - "database:database"
+  web:
+    container_name: project-front
+    build: project-front
+    ports:
+      - "84:3000"
+    volumes:
+      - ./project-front:/project-front
+    tty: true
+  database:
+    image: mysql
+    container_name: project-database
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - "./þroject-back/database/db:/database"
+    environment:
+      MYSQL_ROOT_PASSWORD: hashProj123
+      MYSQL_DATABASE: project
+      MYSQL_USER: root
+      MYSQL_PASSWORD: hashProj123
+    tty: true
+    ports:
+      - "3308:3306"
+networks:
+  default:
+    external:
+      name: project-net

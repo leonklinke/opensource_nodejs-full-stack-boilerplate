@@ -4,4 +4,6 @@ WORKDIR /project-back
 
 EXPOSE 3333
 
-CMD node ace serve --watch
+RUN npm i -g @adonisjs/cli
+
+CMD node server

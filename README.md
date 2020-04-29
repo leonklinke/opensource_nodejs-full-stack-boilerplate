@@ -43,3 +43,8 @@ _-d option run your containers in background_
 docker exec -it project-front bash
 yarn test
 ```
+
+- **Migrating database**
+```
+docker exec -d project-back adonis migration:run
+```
