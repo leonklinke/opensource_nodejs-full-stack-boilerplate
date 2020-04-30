@@ -21,8 +21,8 @@ Boilerplate for a full stack project using nodejs (adonisJS), ReactJs as frontEn
 
 Once cloned
 ```
-$ cd project-back && yarn && cd ..
 $ cd project-front && yarn && cd ..
+$ cd project-back && yarn && cp .env.example .env && cd ..
 ``` 
 
 That will install node dependencies into your project
