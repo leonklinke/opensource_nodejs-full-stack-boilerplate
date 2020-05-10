@@ -1,4 +1,22 @@
 {
+  "name": "nodejs-full-stack-boilerplate",
+  "private": true,
+  "workspaces": [
+    "project-*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.20.1"
+  },
+  "scripts": {
+    "postinstall": "lerna bootstrap",
+    "clean": "lerna clean",
+    "start": "lerna run start --parallel --stream",
+    "start:front": "yarn workspace project-front run start",
+    "build:front": "yarn workspace project-back run build",
+    "start:backend": "yarn workspace project-front run start",
+    "build:backend": "yarn workspace project-back run build",
+    "test": "lerna run test"
+  },
   "dependencies": {
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0"
