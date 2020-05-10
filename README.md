@@ -22,11 +22,11 @@ Boilerplate for a full stack project using nodejs (adonisJS), ReactJs as frontEn
 Once cloned
 ```sh
 yarn # yarn install all dependencies and lerna hoist it afterwards.
-``` 
+```
 
 Copy `.env.example` in `project-back` folder
 ```sh
-cp .env.example .env 
+cp project-back/.env.example project-back/.env 
 ```
 
 You can then edit the variables if it is needed.
