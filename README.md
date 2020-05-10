@@ -20,12 +20,48 @@ Boilerplate for a full stack project using nodejs (adonisJS), ReactJs as frontEn
 - First Fork the project and clone
 
 Once cloned
-```
-$ cd project-back && yarn && cd ..
-$ cd project-front && yarn && cd ..
+```sh
+yarn # yarn install all dependencies and lerna hoist it afterwards.
 ``` 
 
+Copy `.env.example` in `project-back` folder
+```sh
+cp .env.example .env 
+```
+
+You can then edit the variables if it is needed.
+
 That will install node dependencies into your project
+
+## Running using Lerna
+
+To run both projects in the same terminal, simply use
+```sh
+yarn start
+```
+
+in the root project folder.
+
+### Lerna management
+
+To install dependencies, use `npx lerna add` command:
+
+```sh
+# this will add in all packages
+npx lerna add axios 
+# this will add only in scoped packages
+npx lerna add axios --scope=project-front
+```
+
+To publish tags use `npx lerna publish`:
+```sh
+npx lerna publish
+# It will open a prompt to choose which packages are going to be published.
+```
+
+It can also publish any package to NPM or other repository. In root package.json, we prepared other commands, such as `yarn clean`.
+
+Please refer to [lerna docs](https://github.com/lerna/lerna) to see a full list of commands.
 
 ## Instaling Docker
 
